@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Play, RotateCcw, Filter, Group } from 'lucide-react';
+import {  RotateCcw, Filter, Group } from 'lucide-react';
 
 interface DataItem {
   id: number;
@@ -93,33 +93,49 @@ export default function Demonstration() {
 
         {/* Control Panel */}
         <div className="bg-white rounded-lg shadow-xl p-6 mb-8">
-          <div className="flex flex-wrap gap-4 justify-center">
-            <button
-              onClick={handleFilter}
-              disabled={processing}
-              className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors disabled:opacity-50"
-            >
-              <Filter className="w-5 h-5 mr-2" />
-              Filter Salary &gt; 80k
-            </button>
-            <button
-              onClick={handleGroup}
-              disabled={processing}
-              className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors disabled:opacity-50"
-            >
-              <Group className="w-5 h-5 mr-2" />
-              Group by City
-            </button>
-            <button
-              onClick={reset}
-              disabled={processing}
-              className="flex items-center px-6 py-3 border border-orange-600 text-orange-600 rounded-md hover:bg-orange-50 transition-colors disabled:opacity-50"
-            >
-              <RotateCcw className="w-5 h-5 mr-2" />
-              Reset
-            </button>
-          </div>
-        </div>
+  <div className="flex flex-wrap gap-4 justify-center">
+    {/* Filter by Salary button */}
+    <button
+      onClick={() => handleFilter()}
+      disabled={processing}
+      className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors disabled:opacity-50"
+    >
+      <Filter className="w-5 h-5 mr-2" />
+      Filter Salary GT 80k
+    </button>
+
+    {/* Filter by City button */}
+    <button
+      onClick={() => handleFilter()}
+      disabled={processing}
+      className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors disabled:opacity-50"
+    >
+      <Filter className="w-5 h-5 mr-2" />
+      Filter by City (e.g., New York)
+    </button>
+
+    {/* Group by City button */}
+    {/* <button
+      onClick={handleGroup}
+      disabled={processing}
+      className="flex items-center px-6 py-3 bg-orange-600 text-white rounded-md hover:bg-orange-700 transition-colors disabled:opacity-50"
+    >
+      <Group className="w-5 h-5 mr-2" />
+      Group by City
+    </button> */}
+
+    {/* Reset button */}
+    <button
+      onClick={reset}
+      disabled={processing}
+      className="flex items-center px-6 py-3 border border-orange-600 text-orange-600 rounded-md hover:bg-orange-50 transition-colors disabled:opacity-50"
+    >
+      <RotateCcw className="w-5 h-5 mr-2" />
+      Reset
+    </button>
+  </div>
+</div>
+
 
         {/* Processing Animation */}
         {processing && (
